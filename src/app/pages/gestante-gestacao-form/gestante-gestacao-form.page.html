@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ title }}</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="onSubmit()">
+    <ion-item lines="none">
+      <ion-text color="primary">Gestante</ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Nome</ion-label>
+      <ion-input autocapitalize="on" [(ngModel)]="gestante.nome" name="nome"></ion-input>
+    </ion-item>
+ 
+      <ion-item>
+        <ion-label position="stacked">Data de Nascimento</ion-label>
+        <ion-input [(ngModel)]="gestante.nascimento" name="nascimento"></ion-input>
+        <ion-label>Idade</ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+
+    <ion-item lines="none">
+      <ion-text color="primary">Gestação</ion-text>
+    </ion-item>
+    
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Data de início da gestação<br> (última menstruação)</ion-label>
+        <ion-input [(ngModel)]="gestacao.inicio" name="inicio" placeholder="dd/mm/aaaa"></ion-input>
+      </ion-item>
+    </ion-list>
+      
+    <ion-item>
+      <ion-label position="stacked">Peso inicial (kg)</ion-label>
+      <ion-input [(ngModel)]="gestacao.pesoInicial" name="pesoInicial"></ion-input>
+      <ion-text>
+        <small>
+          Para o peso inicial considere a estimativa do início da gravidez. Não utilize o peso após o 1º trimestre.
+        </small>
+      </ion-text>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Altura inicial (m)</ion-label>
+      <ion-input [(ngModel)]="gestacao.alturaInicial" name="alturaInicial"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-text>
+        <p>
+          Índice de massa corpórea (IMC)
+        </p>
+      </ion-text>
+    </ion-item>
+
+    <div class="ion-margin-vertical">
+      <ion-button type="submit" color="secondary" expand="block">Salvar</ion-button>
+    </div>
+  </form>
+</ion-content>
